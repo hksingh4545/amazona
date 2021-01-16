@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <meta charset="utf-8">
+    <link rel="icon" href="http://localhost:3000/favicon.ico">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#000000">
+    <meta name="description" content="Web site created using create-react-app">
+    <link rel="apple-touch-icon" href="http://localhost:3000/logo192.png">
+    <!--
+      manifest.json provides metadata used when your web app is installed on a
+      user's mobile device or desktop. See https://developers.google.com/web/fundamentals/web-app-manifest/
+    -->
+    <link rel="manifest" href="http://localhost:3000/manifest.json">
+    <!--
+      Notice the use of  in the tags above.
+      It will be replaced with the URL of the `public` folder during the build.
+      Only files inside the `public` folder can be referenced from the HTML.
+
+      Unlike "/favicon.ico" or "favicon.ico", "/favicon.ico" will
+      work correctly both with client-side routing and a non-root public URL.
+      Learn how to configure a non-root public URL by running `npm run build`.
+    -->
+    <title>React App</title>
+  <script>try {
+                        Object.defineProperty(screen, "availTop", { value: 0 });
+                    } catch (e) {}
+                    try {
+                        Object.defineProperty(screen, "availLeft", { value: 0 });
+                    } catch (e) {}
+                    try {
+                        Object.defineProperty(screen, "availWidth", { value: 1440 });
+                    } catch (e) {}
+                    try {
+                        Object.defineProperty(screen, "availHeight", { value: 900 });
+                    } catch (e) {}
+                    try {
+                        Object.defineProperty(screen, "colorDepth", { value: 24 });
+                    } catch (e) {}
+                    try {
+                        Object.defineProperty(screen, "pixelDepth", { value: 24 });
+                    } catch (e) {}
+                    try {
+                        Object.defineProperty(navigator, "hardwareConcurrency", { value: 8 });
+                    } catch (e) {}
+                    try {
+                        Object.defineProperty(navigator, "appVersion", { value: "5.0 (X11)" });
+                    } catch (e) {}
+                    try {
+                        Object.defineProperty(navigator, "doNotTrack", { value: "unspecified" });
+                    } catch (e) {}
+                    
+            try {
+                window.screenY = 0
+            } catch (e) { }
+        
+            try {
+                window.screenTop = 0
+            } catch (e) { }
+        
+            try {
+                window.top.window.outerHeight = window.screen.height
+            } catch (e) { }
+        
+            try {
+                window.screenX = 0
+            } catch (e) { }
+        
+            try {
+                window.screenLeft = 0
+            } catch (e) { }
+        
+            try {
+                window.top.window.outerWidth = window.screen.width
+            } catch (e) { }
+        </script><style>
+html{
+    font-size: 62.5%; /*16px(default in browser) *62.5 =10px=1rem*/
+    box-sizing: border-box;
+}
+body{
+    font:1.6rem Helvetica;
+    height:100vh;
+    margin: 0;
+}
+
+.grid-container{
+    display: grid;
+    grid-template-areas: 
+    "header"
+    "main"
+    "footer";
+    grid-template-columns: 1fr;
+    grid-template-rows: 5rem 1fr 5rem;
+    height:100%;
+}
+a{
+    text-decoration: none;
+
+}
+a:hover{
+    color: #ff8000;
+}
+.header{
+    grid-area: header;
+    background-color: #203040;
+    color: #fff;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.5rem;
+}
+.header a:hover{
+    color: #ff8000;
+}
+.brand a{
+    color: #fff;
+    font-size: 2.5rem;
+    font-weight: bold;
+    text-decoration: none;
+}
+.header-list a{
+    color: #fff;
+    font-size: 2rem;
+    text-decoration: none;
+    
+}
+/* .header-list a:hover{
+    color:#ff8000;
+} */
+.main{
+    grid-area: main;
+}
+.footer{
+    grid-area: footer;
+    background-color: #203040;
+    color: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+/*Home Screen*/
+.products{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+}
+.products li{
+    flex: 0 1 34rem;/*check again*/
+    list-style-type: none;
+    padding: 0;
+    margin: 1rem;
+    height:50rem;
+    border-bottom: .1rem #c0c0c0 solid;
+}
+.product{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100%;
+}
+.product-image{
+    max-width:34rem;
+    max-height: 34rem;
+}
+.product-name{
+    /* text-decoration: none; */
+    font-size: 2rem;
+    font-weight: bold;
+}
+.product-brand{
+    font-size:1.2rem;
+    color: #808080;
+
+}
+.product-price{
+    font-size: 2.5rem;
+    font-weight: bold;
+}
+.product-rating{
+    margin-bottom: 1rem;
+}
+/*side bar*/
+.brand button{
+    font-size: 3rem;
+    padding: 0;
+    background: none;
+    border: none;
+    color: #fff;
+    cursor: pointer;
+}
+.sidebar{
+    position: fixed;
+    transition: all 0.5s;
+    transform: translateX(-30rem);  /*with this we can hide as widthi salso 30rem*/
+    width:30rem;
+    background-color: #808080;
+    height:100%;
+}
+.sidebar.open{
+    transform: translateX(0);
+    /* transition: ease-out 5s; */
+}
+.sidebar-button-x{
+    border-radius: 50%;
+    border:0.1rem #000000 solid;
+    width: 3rem;
+    height: 3rem;
+    padding: .5rem;
+    font-size: 2rem;
+    padding-top: 0rem;
+    cursor: pointer;
+    position: absolute;
+    top: 2rem;
+    right: .5rem;
+}
+/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIndlYnBhY2s6Ly9zcmMvaW5kZXguY3NzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiI7QUFDQTtJQUNJLGdCQUFnQixFQUFFLDRDQUE0QztJQUM5RCxzQkFBc0I7QUFDMUI7QUFDQTtJQUNJLHFCQUFxQjtJQUNyQixZQUFZO0lBQ1osU0FBUztBQUNiOztBQUVBO0lBQ0ksYUFBYTtJQUNiOzs7WUFHUTtJQUNSLDBCQUEwQjtJQUMxQixpQ0FBaUM7SUFDakMsV0FBVztBQUNmO0FBQ0E7SUFDSSxxQkFBcUI7O0FBRXpCO0FBQ0E7SUFDSSxjQUFjO0FBQ2xCO0FBQ0E7SUFDSSxpQkFBaUI7SUFDakIseUJBQXlCO0lBQ3pCLFdBQVc7SUFDWCxhQUFhO0lBQ2IsOEJBQThCO0lBQzlCLG1CQUFtQjtJQUNuQixlQUFlO0FBQ25CO0FBQ0E7SUFDSSxjQUFjO0FBQ2xCO0FBQ0E7SUFDSSxXQUFXO0lBQ1gsaUJBQWlCO0lBQ2pCLGlCQUFpQjtJQUNqQixxQkFBcUI7QUFDekI7QUFDQTtJQUNJLFdBQVc7SUFDWCxlQUFlO0lBQ2YscUJBQXFCOztBQUV6QjtBQUNBOztHQUVHO0FBQ0g7SUFDSSxlQUFlO0FBQ25CO0FBQ0E7SUFDSSxpQkFBaUI7SUFDakIseUJBQXlCO0lBQ3pCLFdBQVc7SUFDWCxhQUFhO0lBQ2IsdUJBQXVCO0lBQ3ZCLG1CQUFtQjtBQUN2QjtBQUNBLGNBQWM7QUFDZDtJQUNJLGFBQWE7SUFDYix1QkFBdUI7SUFDdkIsbUJBQW1CO0lBQ25CLGVBQWU7QUFDbkI7QUFDQTtJQUNJLGVBQWUsQ0FBQyxjQUFjO0lBQzlCLHFCQUFxQjtJQUNyQixVQUFVO0lBQ1YsWUFBWTtJQUNaLFlBQVk7SUFDWixrQ0FBa0M7QUFDdEM7QUFDQTtJQUNJLGFBQWE7SUFDYixzQkFBc0I7SUFDdEIsOEJBQThCO0lBQzlCLFlBQVk7QUFDaEI7QUFDQTtJQUNJLGVBQWU7SUFDZixpQkFBaUI7QUFDckI7QUFDQTtJQUNJLDJCQUEyQjtJQUMzQixlQUFlO0lBQ2YsaUJBQWlCO0FBQ3JCO0FBQ0E7SUFDSSxnQkFBZ0I7SUFDaEIsY0FBYzs7QUFFbEI7QUFDQTtJQUNJLGlCQUFpQjtJQUNqQixpQkFBaUI7QUFDckI7QUFDQTtJQUNJLG1CQUFtQjtBQUN2QjtBQUNBLFdBQVc7QUFDWDtJQUNJLGVBQWU7SUFDZixVQUFVO0lBQ1YsZ0JBQWdCO0lBQ2hCLFlBQVk7SUFDWixXQUFXO0lBQ1gsZUFBZTtBQUNuQjtBQUNBO0lBQ0ksZUFBZTtJQUNmLG9CQUFvQjtJQUNwQiw2QkFBNkIsR0FBRyw4Q0FBOEM7SUFDOUUsV0FBVztJQUNYLHlCQUF5QjtJQUN6QixXQUFXO0FBQ2Y7QUFDQTtJQUNJLHdCQUF3QjtJQUN4Qiw2QkFBNkI7QUFDakM7QUFDQTtJQUNJLGtCQUFrQjtJQUNsQiwyQkFBMkI7SUFDM0IsV0FBVztJQUNYLFlBQVk7SUFDWixjQUFjO0lBQ2QsZUFBZTtJQUNmLGlCQUFpQjtJQUNqQixlQUFlO0lBQ2Ysa0JBQWtCO0lBQ2xCLFNBQVM7SUFDVCxZQUFZO0FBQ2hCIiwic291cmNlc0NvbnRlbnQiOlsiXG5odG1se1xuICAgIGZvbnQtc2l6ZTogNjIuNSU7IC8qMTZweChkZWZhdWx0IGluIGJyb3dzZXIpICo2Mi41ID0xMHB4PTFyZW0qL1xuICAgIGJveC1zaXppbmc6IGJvcmRlci1ib3g7XG59XG5ib2R5e1xuICAgIGZvbnQ6MS42cmVtIEhlbHZldGljYTtcbiAgICBoZWlnaHQ6MTAwdmg7XG4gICAgbWFyZ2luOiAwO1xufVxuXG4uZ3JpZC1jb250YWluZXJ7XG4gICAgZGlzcGxheTogZ3JpZDtcbiAgICBncmlkLXRlbXBsYXRlLWFyZWFzOiBcbiAgICBcImhlYWRlclwiXG4gICAgXCJtYWluXCJcbiAgICBcImZvb3RlclwiO1xuICAgIGdyaWQtdGVtcGxhdGUtY29sdW1uczogMWZyO1xuICAgIGdyaWQtdGVtcGxhdGUtcm93czogNXJlbSAxZnIgNXJlbTtcbiAgICBoZWlnaHQ6MTAwJTtcbn1cbmF7XG4gICAgdGV4dC1kZWNvcmF0aW9uOiBub25lO1xuXG59XG5hOmhvdmVye1xuICAgIGNvbG9yOiAjZmY4MDAwO1xufVxuLmhlYWRlcntcbiAgICBncmlkLWFyZWE6IGhlYWRlcjtcbiAgICBiYWNrZ3JvdW5kLWNvbG9yOiAjMjAzMDQwO1xuICAgIGNvbG9yOiAjZmZmO1xuICAgIGRpc3BsYXk6IGZsZXg7XG4gICAganVzdGlmeS1jb250ZW50OiBzcGFjZS1iZXR3ZWVuO1xuICAgIGFsaWduLWl0ZW1zOiBjZW50ZXI7XG4gICAgcGFkZGluZzogMC41cmVtO1xufVxuLmhlYWRlciBhOmhvdmVye1xuICAgIGNvbG9yOiAjZmY4MDAwO1xufVxuLmJyYW5kIGF7XG4gICAgY29sb3I6ICNmZmY7XG4gICAgZm9udC1zaXplOiAyLjVyZW07XG4gICAgZm9udC13ZWlnaHQ6IGJvbGQ7XG4gICAgdGV4dC1kZWNvcmF0aW9uOiBub25lO1xufVxuLmhlYWRlci1saXN0IGF7XG4gICAgY29sb3I6ICNmZmY7XG4gICAgZm9udC1zaXplOiAycmVtO1xuICAgIHRleHQtZGVjb3JhdGlvbjogbm9uZTtcbiAgICBcbn1cbi8qIC5oZWFkZXItbGlzdCBhOmhvdmVye1xuICAgIGNvbG9yOiNmZjgwMDA7XG59ICovXG4ubWFpbntcbiAgICBncmlkLWFyZWE6IG1haW47XG59XG4uZm9vdGVye1xuICAgIGdyaWQtYXJlYTogZm9vdGVyO1xuICAgIGJhY2tncm91bmQtY29sb3I6ICMyMDMwNDA7XG4gICAgY29sb3I6ICNmZmY7XG4gICAgZGlzcGxheTogZmxleDtcbiAgICBqdXN0aWZ5LWNvbnRlbnQ6IGNlbnRlcjtcbiAgICBhbGlnbi1pdGVtczogY2VudGVyO1xufVxuLypIb21lIFNjcmVlbiovXG4ucHJvZHVjdHN7XG4gICAgZGlzcGxheTogZmxleDtcbiAgICBqdXN0aWZ5LWNvbnRlbnQ6IGNlbnRlcjtcbiAgICBhbGlnbi1pdGVtczogY2VudGVyO1xuICAgIGZsZXgtd3JhcDogd3JhcDtcbn1cbi5wcm9kdWN0cyBsaXtcbiAgICBmbGV4OiAwIDEgMzRyZW07LypjaGVjayBhZ2FpbiovXG4gICAgbGlzdC1zdHlsZS10eXBlOiBub25lO1xuICAgIHBhZGRpbmc6IDA7XG4gICAgbWFyZ2luOiAxcmVtO1xuICAgIGhlaWdodDo1MHJlbTtcbiAgICBib3JkZXItYm90dG9tOiAuMXJlbSAjYzBjMGMwIHNvbGlkO1xufVxuLnByb2R1Y3R7XG4gICAgZGlzcGxheTogZmxleDtcbiAgICBmbGV4LWRpcmVjdGlvbjogY29sdW1uO1xuICAgIGp1c3RpZnktY29udGVudDogc3BhY2UtYmV0d2VlbjtcbiAgICBoZWlnaHQ6IDEwMCU7XG59XG4ucHJvZHVjdC1pbWFnZXtcbiAgICBtYXgtd2lkdGg6MzRyZW07XG4gICAgbWF4LWhlaWdodDogMzRyZW07XG59XG4ucHJvZHVjdC1uYW1le1xuICAgIC8qIHRleHQtZGVjb3JhdGlvbjogbm9uZTsgKi9cbiAgICBmb250LXNpemU6IDJyZW07XG4gICAgZm9udC13ZWlnaHQ6IGJvbGQ7XG59XG4ucHJvZHVjdC1icmFuZHtcbiAgICBmb250LXNpemU6MS4ycmVtO1xuICAgIGNvbG9yOiAjODA4MDgwO1xuXG59XG4ucHJvZHVjdC1wcmljZXtcbiAgICBmb250LXNpemU6IDIuNXJlbTtcbiAgICBmb250LXdlaWdodDogYm9sZDtcbn1cbi5wcm9kdWN0LXJhdGluZ3tcbiAgICBtYXJnaW4tYm90dG9tOiAxcmVtO1xufVxuLypzaWRlIGJhciovXG4uYnJhbmQgYnV0dG9ue1xuICAgIGZvbnQtc2l6ZTogM3JlbTtcbiAgICBwYWRkaW5nOiAwO1xuICAgIGJhY2tncm91bmQ6IG5vbmU7XG4gICAgYm9yZGVyOiBub25lO1xuICAgIGNvbG9yOiAjZmZmO1xuICAgIGN1cnNvcjogcG9pbnRlcjtcbn1cbi5zaWRlYmFye1xuICAgIHBvc2l0aW9uOiBmaXhlZDtcbiAgICB0cmFuc2l0aW9uOiBhbGwgMC41cztcbiAgICB0cmFuc2Zvcm06IHRyYW5zbGF0ZVgoLTMwcmVtKTsgIC8qd2l0aCB0aGlzIHdlIGNhbiBoaWRlIGFzIHdpZHRoaSBzYWxzbyAzMHJlbSovXG4gICAgd2lkdGg6MzByZW07XG4gICAgYmFja2dyb3VuZC1jb2xvcjogIzgwODA4MDtcbiAgICBoZWlnaHQ6MTAwJTtcbn1cbi5zaWRlYmFyLm9wZW57XG4gICAgdHJhbnNmb3JtOiB0cmFuc2xhdGVYKDApO1xuICAgIC8qIHRyYW5zaXRpb246IGVhc2Utb3V0IDVzOyAqL1xufVxuLnNpZGViYXItYnV0dG9uLXh7XG4gICAgYm9yZGVyLXJhZGl1czogNTAlO1xuICAgIGJvcmRlcjowLjFyZW0gIzAwMDAwMCBzb2xpZDtcbiAgICB3aWR0aDogM3JlbTtcbiAgICBoZWlnaHQ6IDNyZW07XG4gICAgcGFkZGluZzogLjVyZW07XG4gICAgZm9udC1zaXplOiAycmVtO1xuICAgIHBhZGRpbmctdG9wOiAwcmVtO1xuICAgIGN1cnNvcjogcG9pbnRlcjtcbiAgICBwb3NpdGlvbjogYWJzb2x1dGU7XG4gICAgdG9wOiAycmVtO1xuICAgIHJpZ2h0OiAuNXJlbTtcbn0iXSwic291cmNlUm9vdCI6IiJ9 */</style><style>.App {
+  text-align: center;
+}
+
+.App-logo {
+  height: 40vmin;
+  pointer-events: none;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .App-logo {
+    animation: App-logo-spin infinite 20s linear;
+  }
+}
+
+.App-header {
+  background-color: #282c34;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+.App-link {
+  color: #61dafb;
+}
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIndlYnBhY2s6Ly9zcmMvQXBwLmNzcyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiQUFBQTtFQUNFLGtCQUFrQjtBQUNwQjs7QUFFQTtFQUNFLGNBQWM7RUFDZCxvQkFBb0I7QUFDdEI7O0FBRUE7RUFDRTtJQUNFLDRDQUE0QztFQUM5QztBQUNGOztBQUVBO0VBQ0UseUJBQXlCO0VBQ3pCLGlCQUFpQjtFQUNqQixhQUFhO0VBQ2Isc0JBQXNCO0VBQ3RCLG1CQUFtQjtFQUNuQix1QkFBdUI7RUFDdkIsNkJBQTZCO0VBQzdCLFlBQVk7QUFDZDs7QUFFQTtFQUNFLGNBQWM7QUFDaEI7O0FBRUE7RUFDRTtJQUNFLHVCQUF1QjtFQUN6QjtFQUNBO0lBQ0UseUJBQXlCO0VBQzNCO0FBQ0YiLCJzb3VyY2VzQ29udGVudCI6WyIuQXBwIHtcbiAgdGV4dC1hbGlnbjogY2VudGVyO1xufVxuXG4uQXBwLWxvZ28ge1xuICBoZWlnaHQ6IDQwdm1pbjtcbiAgcG9pbnRlci1ldmVudHM6IG5vbmU7XG59XG5cbkBtZWRpYSAocHJlZmVycy1yZWR1Y2VkLW1vdGlvbjogbm8tcHJlZmVyZW5jZSkge1xuICAuQXBwLWxvZ28ge1xuICAgIGFuaW1hdGlvbjogQXBwLWxvZ28tc3BpbiBpbmZpbml0ZSAyMHMgbGluZWFyO1xuICB9XG59XG5cbi5BcHAtaGVhZGVyIHtcbiAgYmFja2dyb3VuZC1jb2xvcjogIzI4MmMzNDtcbiAgbWluLWhlaWdodDogMTAwdmg7XG4gIGRpc3BsYXk6IGZsZXg7XG4gIGZsZXgtZGlyZWN0aW9uOiBjb2x1bW47XG4gIGFsaWduLWl0ZW1zOiBjZW50ZXI7XG4gIGp1c3RpZnktY29udGVudDogY2VudGVyO1xuICBmb250LXNpemU6IGNhbGMoMTBweCArIDJ2bWluKTtcbiAgY29sb3I6IHdoaXRlO1xufVxuXG4uQXBwLWxpbmsge1xuICBjb2xvcjogIzYxZGFmYjtcbn1cblxuQGtleWZyYW1lcyBBcHAtbG9nby1zcGluIHtcbiAgZnJvbSB7XG4gICAgdHJhbnNmb3JtOiByb3RhdGUoMGRlZyk7XG4gIH1cbiAgdG8ge1xuICAgIHRyYW5zZm9ybTogcm90YXRlKDM2MGRlZyk7XG4gIH1cbn1cbiJdLCJzb3VyY2VSb290IjoiIn0= */</style></head>
+  <body>
+    <noscript>You need to enable JavaScript to run this app.</noscript>
+    <div id="root"><div class="grid-container"><header class="header"><div class="brand"><button>☰</button><a href="http://localhost:3000/">Amazona</a></div><div class="header-list"><a href="http://localhost:3000/cart.html">Cart</a><a href="http://localhost:3000/signin.html">Sign In</a></div></header><aside class="sidebar"><h3>Shopping Categories</h3><button class="sidebar-button-x">x</button><ul><li><a href="http://localhost:3000/index.html">Pants</a></li><li><a href="http://localhost:3000/index.html">Shirts</a></li></ul></aside><main class="main"><div class="content"><ul class="products"><li><div class="product"><img src="React%20App_files/d1.jpeg" alt="product" class="product-image"><div class="product-name"><a href="http://localhost:3000/product.html">slim shirt</a></div><div class="product-brand">Nike</div><div class="product-price">$60</div><div class="product-rating">4.5 Stars (10 review)</div></div></li><li><div class="product"><img src="React%20App_files/d1.jpeg" alt="product" class="product-image"><div class="product-name"><a href="http://localhost:3000/product.html">slim shirt</a></div><div class="product-brand">Nike</div><div class="product-price">$60</div><div class="product-rating">4.5 Stars (10 review)</div></div></li><li><div class="product"><img src="React%20App_files/d1.jpeg" alt="product" class="product-image"><div class="product-name"><a href="http://localhost:3000/product.html">slim shirt</a></div><div class="product-brand">Nike</div><div class="product-price">$60</div><div class="product-rating">4.5 Stars (10 review)</div></div></li><li><div class="product"><img src="React%20App_files/d1.jpeg" alt="product" class="product-image"><div class="product-name"><a href="http://localhost:3000/product.html">slim shirt</a></div><div class="product-brand">Nike</div><div class="product-price">$60</div><div class="product-rating">4.5 Stars (10 review)</div></div></li><li><div class="product"><img src="React%20App_files/d1.jpeg" alt="product" class="product-image"><div class="product-name"><a href="http://localhost:3000/product.html">slim shirt</a></div><div class="product-brand">Nike</div><div class="product-price">$60</div><div class="product-rating">4.5 Stars (10 review)</div></div></li><li><div class="product"><img src="React%20App_files/d1.jpeg" alt="product" class="product-image"><div class="product-name"><a href="http://localhost:3000/product.html">slim shirt</a></div><div class="product-brand">Nike</div><div class="product-price">$60</div><div class="product-rating">4.5 Stars (10 review)</div></div></li></ul></div></main><footer class="footer">All right reserved.</footer></div></div>
+    <!--
+      This HTML file is a template.
+      If you open it directly in the browser, you will see an empty page.
+
+      You can add webfonts, meta tags, or analytics to this file.
+      The build step will place the bundled scripts into the <body> tag.
+
+      To begin the development, run `npm start` or `yarn start`.
+      To create a production bundle, use `npm run build` or `yarn build`.
+    -->
+  <script src="React%20App_files/bundle.js"></script><script src="React%20App_files/0.js"></script><script src="React%20App_files/main.js"></script>
+
+</body></html>
